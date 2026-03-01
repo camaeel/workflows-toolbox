@@ -19,21 +19,12 @@ USER root
 RUN  adduser -u 8737 -D executor
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache curl jq yq wget python3 py3-pip ansible && \
+    apk add --no-cache curl jq yq wget python3 py3-pip ansible kubectl aws-cli && \
     apk add --no-cache tenv --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/ && \
     wget https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_${TARGETOS}_${TARGETARCH}.zip && \
     unzip packer_${PACKER_VERSION}_${TARGETOS}_${TARGETARCH}.zip -d /usr/local/bin && \
     rm packer_${PACKER_VERSION}_${TARGETOS}_${TARGETARCH}.zip && \
     chmod +x /usr/local/bin/packer && \
-    case "${TARGETARCH}" in \
-      amd64)  export AWS_ARCH="X86_64"; export AWS_CLI_ARCH="x86_64" ;; \
-      arm64)  export AWS_ARCH="Aarch64"; export AWS_CLI_ARCH="aarch64"  ;; \
-      *)      echo "Unsupported architecture: ${TARGETARCH}" && exit 1 ;; \
-    esac && \
-    curl "https://awscli.amazonaws.com/awscli-exe-linux-${AWS_CLI_ARCH}.zip" -f -o "awscliv2.zip" && \
-    unzip awscliv2.zip && \
-    ./aws/install && \
-    rm -rf awscliv2.zip ./aws && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/local/bin/
@@ -54,3 +45,17 @@ RUN --mount=type=secret,id=TENV_GITHUB_TOKEN,env=TENV_GITHUB_TOKEN \
     tenv tofu install ${TOFU_VERSION} && tenv tofu use ${TOFU_VERSION}
 
 WORKDIR /home/executor
+
+#tests
+RUN packer version && \
+    terraform version && \
+    terragrunt version && \
+    tofu version && \
+    talosctl version --client && \
+    kubectl version --client && \
+    aws --version && \
+    ansible --version && \
+    python3 --version && \
+    pip3 --version && \
+    tenv --version
+
