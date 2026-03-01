@@ -19,7 +19,7 @@ USER root
 RUN  adduser -u 8737 -D executor
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache curl jq yq wget python3 py3-pip ansible kubectl aws-cli && \
+    apk add --no-cache curl jq yq wget python3 py3-pip ansible kubectl aws-cli bash && \
     apk add --no-cache tenv --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/ && \
     wget https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_${TARGETOS}_${TARGETARCH}.zip && \
     unzip packer_${PACKER_VERSION}_${TARGETOS}_${TARGETARCH}.zip -d /usr/local/bin && \
