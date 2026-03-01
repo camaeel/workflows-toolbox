@@ -1,0 +1,7 @@
+.github/
+.git/
+renovate.json
+Makefile
+*.md
+build.sh
+LICENSE
