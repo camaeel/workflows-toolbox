@@ -1,15 +1,15 @@
 FROM alpine:3
 
 # renovate: datasource=github-releases depName=terraform packageName=hashicorp/terraform
-ARG TERRAFORM_VERSION=1.14.3
+ARG TERRAFORM_VERSION=1.15.3
 # renovate: datasource=github-releases depName=packer packageName=hashicorp/packer
-ARG PACKER_VERSION=1.15.0
+ARG PACKER_VERSION=1.15.3
 # renovate: datasource=github-releases depName=opentofu packageName=opentofu/opentofu
-ARG TOFU_VERSION=1.11.4
+ARG TOFU_VERSION=1.12.0
 # renovate: datasource=github-releases depName=terragrunt packageName=gruntwork-io/terragrunt
-ARG TERRAGRUNT_VERSION=0.99.0
+ARG TERRAGRUNT_VERSION=1.0.5
 # renovate: datasource=github-releases depName=talosctl packageName=siderolabs/talos
-ARG TALOS_VERSION=1.12.2
+ARG TALOS_VERSION=1.13.2
 
 ARG TARGETARCH
 ARG TARGETOS
@@ -58,4 +58,3 @@ RUN packer version && \
     python3 --version && \
     pip3 --version && \
     tenv --version
-
