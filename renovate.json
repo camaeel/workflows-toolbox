@@ -18,5 +18,12 @@
     }
   ],
   "ignoreDeps": [
-  ]
+  ],
+  "schedule": [
+    "* 16-20 * * 4"
+  ],
+  "assignees" : [
+    "camaeel"
+  ],
+  "timezone": "Europe/Warsaw"
 }
