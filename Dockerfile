@@ -3,7 +3,7 @@ FROM alpine:3
 # renovate: datasource=github-releases depName=terraform packageName=hashicorp/terraform
 ARG TERRAFORM_VERSION=1.15.3
 # renovate: datasource=github-releases depName=packer packageName=hashicorp/packer
-ARG PACKER_VERSION=1.15.3
+ARG PACKER_VERSION=1.15.4
 # renovate: datasource=github-releases depName=opentofu packageName=opentofu/opentofu
 ARG TOFU_VERSION=1.12.0
 # renovate: datasource=github-releases depName=terragrunt packageName=gruntwork-io/terragrunt
