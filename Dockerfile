@@ -7,9 +7,9 @@ ARG PACKER_VERSION=1.15.3
 # renovate: datasource=github-releases depName=opentofu packageName=opentofu/opentofu
 ARG TOFU_VERSION=1.12.0
 # renovate: datasource=github-releases depName=terragrunt packageName=gruntwork-io/terragrunt
-ARG TERRAGRUNT_VERSION=1.0.5
+ARG TERRAGRUNT_VERSION=1.1.0
 # renovate: datasource=github-releases depName=talosctl packageName=siderolabs/talos
-ARG TALOS_VERSION=1.13.2
+ARG TALOS_VERSION=1.13.6
 
 ARG TARGETARCH
 ARG TARGETOS
