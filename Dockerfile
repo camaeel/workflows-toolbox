@@ -9,7 +9,7 @@ ARG TOFU_VERSION=1.12.4
 # renovate: datasource=github-releases depName=terragrunt packageName=gruntwork-io/terragrunt
 ARG TERRAGRUNT_VERSION=1.1.1
 # renovate: datasource=github-releases depName=talosctl packageName=siderolabs/talos
-ARG TALOS_VERSION=1.13.6
+ARG TALOS_VERSION=1.13.7
 
 ARG TARGETARCH
 ARG TARGETOS
