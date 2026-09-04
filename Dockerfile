@@ -44,7 +44,8 @@ RUN --mount=type=secret,id=TENV_GITHUB_TOKEN,env=TENV_GITHUB_TOKEN \
     tenv tg install ${TERRAGRUNT_VERSION} && tenv tg use ${TERRAGRUNT_VERSION} && \
     tenv tofu install ${TOFU_VERSION} && tenv tofu use ${TOFU_VERSION}
 
-RUN ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+RUN mkdir -p ~/.ssh/ && \
+    ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 WORKDIR /home/executor
 
